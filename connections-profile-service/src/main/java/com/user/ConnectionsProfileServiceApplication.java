@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -53,7 +52,7 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 		User user = new User();
 		user.setUserName("amit@123");
 		user.setPassword(passwordEncoder.encode("amit"));
-		user.setActive(true);
+		user.setActive(1);
 		user.setRoles("user");
 		userRepository.save(user);
 
