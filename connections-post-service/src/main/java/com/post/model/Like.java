@@ -7,13 +7,13 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name="reaction")
 public class Like {
     @Id
     @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)
@@ -24,8 +24,12 @@ public class Like {
     private LocalDateTime likeTime;
     @ManyToOne
     @JoinColumn(name="postid")
-    List<Post> posts;
+    Post post;
     @ManyToOne
     @JoinColumn(name="profileid")
-    List<Profile> profiles;
+    Profile profile;
+
+    public Like(LocalDateTime likeTime) {
+        this.likeTime = likeTime;
+    }
 }

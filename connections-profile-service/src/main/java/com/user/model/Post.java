@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,20 +25,20 @@ public class Post {
     String topic;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
-    List<Like> likes;
+    Set<Like> likes;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
-    List<Comments> commentsList;
+    Set<Comments> comments;
     @ManyToOne
     @JoinColumn(name="profileid")
-    List<Profile> profiles;
+    Profile profile;
 
-    public Post(String title, String description, String topic, List<Like> likes, List<Comments> commentsList, List<Profile> profiles) {
+    public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> commentsList, Profile profiles) {
         this.title = title;
         this.description = description;
         this.topic = topic;
         this.likes = likes;
-        this.commentsList = commentsList;
-        this.profiles = profiles;
+        this.comments = commentsList;
+        this.profile = profiles;
     }
 }

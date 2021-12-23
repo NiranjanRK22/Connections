@@ -25,15 +25,13 @@ public class Comments {
     private LocalDateTime commentTime;
     @ManyToOne
     @JoinColumn(name="postid")
-    private List<Post> posts;
+    private Post post;
     @ManyToOne
     @JoinColumn(name="profileid")
-    private List<Profile> profiles;
+    private Profile profile;
 
-    public Comments(String comment, LocalDateTime commentTime, List<Post> posts, List<Profile> profiles) {
+    public Comments(String comment, LocalDateTime commentTime) {
         this.comment = comment;
         this.commentTime = commentTime;
-        this.posts = posts;
-        this.profiles = profiles;
     }
 }
