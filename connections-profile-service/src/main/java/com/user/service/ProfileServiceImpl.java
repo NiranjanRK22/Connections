@@ -11,7 +11,7 @@ public class ProfileServiceImpl implements IProfileService{
 
     private IProfileRepository profileRepository;
 
-    
+
     @Override
     public Profile addProfile(Profile profile) {
         return null;
