@@ -1,5 +1,11 @@
 package com.user.model;
 
+<<<<<<< HEAD
+public enum Certifications {
+    AGILE, ORACLE, AWS, IRC,MICROSOFT,CLOUDCOMPUTING,
+    GCP,IBM,PALO,SALESFORCE,PEGA,REDHAT,SCRUM,
+    CITRIX,CHECKPOINT,DELLEMC,HPE,AZURE,ADOBE
+=======
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,4 +29,5 @@ public class Certifications {
     public Certifications(String certificationName) {
         this.certificationName = certificationName;
     }
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 }

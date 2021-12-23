@@ -7,7 +7,10 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+<<<<<<< HEAD
+=======
 import java.util.Set;
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 
 @Getter
 @Setter
@@ -25,6 +28,17 @@ public class Post {
     String topic;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
+<<<<<<< HEAD
+    List<Like> likes;
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name="postid")
+    List<Comments> commentsList;
+    @ManyToOne
+    @JoinColumn(name="profileid")
+    List<Profile> profiles;
+
+    public Post(String title, String description, String topic, List<Like> likes, List<Comments> commentsList, List<Profile> profiles) {
+=======
     Set<Like> likes;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
@@ -34,11 +48,17 @@ public class Post {
     Profile profile;
 
     public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> commentsList, Profile profiles) {
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
         this.title = title;
         this.description = description;
         this.topic = topic;
         this.likes = likes;
+<<<<<<< HEAD
+        this.commentsList = commentsList;
+        this.profiles = profiles;
+=======
         this.comments = commentsList;
         this.profile = profiles;
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
     }
 }

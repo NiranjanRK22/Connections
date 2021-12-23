@@ -6,7 +6,11 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+<<<<<<< HEAD
+import java.util.List;
+=======
 import java.util.Set;
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 
 @Getter
 @Setter
@@ -29,15 +33,29 @@ public class Profile {
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
+<<<<<<< HEAD
+    private List<Post> posts;
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name="profileid")
+    private List<Comments> commentsList;
+
+    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails, List<Post> posts, List<Comments> commentsList) {
+=======
     private Set<Post> posts;
 
 
     public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails) {
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
         this.name = name;
         this.email = email;
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
+<<<<<<< HEAD
+        this.posts = posts;
+        this.commentsList = commentsList;
+=======
 
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
     }
 }

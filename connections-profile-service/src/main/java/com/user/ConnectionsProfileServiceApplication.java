@@ -1,5 +1,12 @@
 package com.user;
 
+<<<<<<< HEAD
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ConnectionsProfileServiceApplication {
+=======
 import com.user.model.*;
 import com.user.repository.UserRepository;
 import com.user.service.IProfileService;
@@ -16,11 +23,14 @@ import java.util.Set;
 
 @SpringBootApplication
 public class ConnectionsProfileServiceApplication implements CommandLineRunner {
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConnectionsProfileServiceApplication.class, args);
 	}
 
+<<<<<<< HEAD
+=======
     @Autowired
     private IProfileService profileService;
 
@@ -59,4 +69,5 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 
 
 	}
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 }

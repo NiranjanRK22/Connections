@@ -6,7 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+<<<<<<< HEAD
+=======
 import java.util.Set;
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
 
 @Getter
 @Setter
@@ -20,6 +23,22 @@ public class ProfileDetails {
     @SequenceGenerator(name="profiledetails_seq",sequenceName = "profiledetails_sequence",initialValue = 151,allocationSize = 1)
     @Column(name = "detailsid")
     private Integer detailsId;
+<<<<<<< HEAD
+    @Column(length=30)
+    @Enumerated(EnumType.STRING)
+    private OpenTo openTo;
+    @Column(length=30)
+    private String qualification;
+    @Column(length=30)
+    @Enumerated(EnumType.STRING)
+    private Skills skills;
+    private int experience;
+    @Column(length=30)
+    @Enumerated(EnumType.STRING)
+    private Certifications certifications;
+
+    public ProfileDetails(OpenTo openTo, String qualification, Skills skills, int experience, Certifications certifications) {
+=======
 
     @Column(length=30)
     @Enumerated(EnumType.STRING)
@@ -41,6 +60,7 @@ public class ProfileDetails {
     private Set<Certifications> certifications;
 
     public ProfileDetails(OpenTo openTo, String qualification, Set<Skills> skills, int experience, Set<Certifications> certifications) {
+>>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
         this.openTo = openTo;
         this.qualification = qualification;
         this.skills = skills;
