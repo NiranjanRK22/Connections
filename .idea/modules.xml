@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Connections.iml" filepath="$PROJECT_DIR$/.idea/Connections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connections-config-server/connections-config-server.iml" filepath="$PROJECT_DIR$/connections-config-server/connections-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connections-eureka-server/connections-eureka-server.iml" filepath="$PROJECT_DIR$/connections-eureka-server/connections-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connections-jobs-service/connections-jobs-service.iml" filepath="$PROJECT_DIR$/connections-jobs-service/connections-jobs-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connections-post-service/connections-post-service.iml" filepath="$PROJECT_DIR$/connections-post-service/connections-post-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connections-profile-service/connections-profile-service.iml" filepath="$PROJECT_DIR$/connections-profile-service/connections-profile-service.iml" />
+    </modules>
+  </component>
+</project>
