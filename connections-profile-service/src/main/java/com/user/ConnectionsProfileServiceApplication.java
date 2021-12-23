@@ -16,7 +16,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = UserRepository.class)
 public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
