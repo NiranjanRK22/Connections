@@ -26,7 +26,7 @@ public class Profile {
     @Column(name="profileimage")
     private String profileImage;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profiledetails")
+    @JoinColumn(name="profiledetailsid")
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")

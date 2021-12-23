@@ -6,4 +6,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/fsdnas/ConnectionsConfigServer.git
+          uri: https://github.com/NiranjanRK22/ConnectionsRepo.git
