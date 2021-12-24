@@ -30,17 +30,10 @@ public class Profile {
     @Column(name="profileimage")
     private String profileImage;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profiledetails")
+    @JoinColumn(name="profiledetailsid")
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
-
-    private List<Post> posts;
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name="profileid")
-    private List<Comments> commentsList;
-
-    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails, List<Post> posts, List<Comments> commentsList) {
     private Set<Post> posts;
 
 
@@ -50,5 +43,6 @@ public class Profile {
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
+
     }
 }
