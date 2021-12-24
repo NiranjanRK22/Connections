@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 @Table(name="reaction")
+@Entity
 public class Like {
     @Id
     @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)
