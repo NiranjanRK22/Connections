@@ -1,12 +1,5 @@
 package com.user;
 
-<<<<<<< HEAD
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class ConnectionsProfileServiceApplication {
-=======
 import com.user.model.*;
 import com.user.repository.UserRepository;
 import com.user.service.IProfileService;
@@ -23,14 +16,13 @@ import java.util.Set;
 
 @SpringBootApplication
 public class ConnectionsProfileServiceApplication implements CommandLineRunner {
->>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConnectionsProfileServiceApplication.class, args);
 	}
 
-<<<<<<< HEAD
-=======
+
     @Autowired
     private IProfileService profileService;
 
@@ -46,7 +38,7 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 		Skills skill2= new Skills(Skill.AZURE.toString());
 		Skills skill3= new Skills(Skill.DOTNET.toString());
 
-		Set<Skills>skillsSet=new HashSet<>(Arrays.asList(skill1,skill2,skill3));
+		Set<Skills> skillsSet=new HashSet<>(Arrays.asList(skill1,skill2,skill3));
 
 		Certifications certification1= new Certifications(Certificate.ADOBE.toString());
 		Certifications certification2= new Certifications(Certificate.AZURE.toString());
@@ -69,5 +61,5 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 
 
 	}
->>>>>>> b9fd5c55d4a35b5f4d040cecd1fb74696920a598
+
 }

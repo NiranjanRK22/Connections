@@ -12,4 +12,5 @@ public interface IProfileService {
     Profile getById(int profileId);
 
     List<Profile> getAll();
+    //List<Profile> getBy
 }
