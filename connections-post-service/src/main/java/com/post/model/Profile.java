@@ -6,7 +6,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.ws.rs.HEAD;
+
+import java.util.List;
+
 import java.util.Set;
+
 
 @Getter
 @Setter
@@ -29,6 +34,13 @@ public class Profile {
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
+
+    private List<Post> posts;
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name="profileid")
+    private List<Comments> commentsList;
+
+    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails, List<Post> posts, List<Comments> commentsList) {
     private Set<Post> posts;
 
 
@@ -38,6 +50,5 @@ public class Profile {
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
-
     }
 }

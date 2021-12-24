@@ -6,8 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
+
+
 import java.util.Set;
+
 
 @Getter
 @Setter
@@ -33,12 +35,12 @@ public class Post {
     @JoinColumn(name="profileid")
     Profile profile;
 
-    public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> commentsList, Profile profiles) {
+    public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> comments, Profile profile) {
         this.title = title;
         this.description = description;
         this.topic = topic;
         this.likes = likes;
-        this.comments = commentsList;
-        this.profile = profiles;
+        this.comments = comments;
+        this.profile = profile;
     }
 }

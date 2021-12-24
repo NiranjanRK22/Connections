@@ -7,15 +7,14 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Set;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-@Entity
 @Table(name="reaction")
+@Entity
 public class Like {
     @Id
     @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)

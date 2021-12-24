@@ -3,6 +3,7 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/connections-jobs-service/pom.xml" />
         <option value="$PROJECT_DIR$/connections-post-service/pom.xml" />
         <option value="$PROJECT_DIR$/connections-config-server/pom.xml" />
@@ -12,4 +13,15 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK" />
+=======
+        <option value="$PROJECT_DIR$/connections-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-profile-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-post-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-jobs-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-config-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+>>>>>>> f3f02ec5c265795a3b66356fcebc243ae105ad6a
 </project>

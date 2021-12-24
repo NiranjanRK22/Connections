@@ -6,8 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
+
 
 @Getter
 @Setter
@@ -26,7 +26,7 @@ public class Profile {
     @Column(name="profileimage")
     private String profileImage;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profiledetails")
+    @JoinColumn(name="profiledetailsid")
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
