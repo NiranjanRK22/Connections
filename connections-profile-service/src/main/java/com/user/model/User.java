@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @ToString
+@Table
 public class User {
     @Id
     @GeneratedValue(generator = "user_seq", strategy = GenerationType.AUTO)
