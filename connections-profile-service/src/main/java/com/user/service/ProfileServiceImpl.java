@@ -24,17 +24,17 @@ public class ProfileServiceImpl implements IProfileService{
     }
 
     @Override
-    public void updateProfile(Profile profile) {
+    public void updateProfile(Profile profile) throws ProfileNotFoundException {
         profileRepository.save(profile);
     }
 
     @Override
-    public void deleteProfile(int profileId) {
+    public void deleteProfile(int profileId) throws ProfileNotFoundException {
         profileRepository.deleteById(profileId);
     }
 
     @Override
-    public Profile getById(int profileId) {
+    public Profile getProfileById(int profileId) {
         return profileRepository.findById(profileId)
                 .orElseThrow(() -> new ProfileNotFoundException("Invalid id"));
     }
@@ -42,5 +42,25 @@ public class ProfileServiceImpl implements IProfileService{
     @Override
     public List<Profile> getAll() {
         return profileRepository.findAll();
+    }
+
+    @Override
+    public List<Profile> getByName(String name) throws ProfileNotFoundException {
+        return null;
+    }
+
+    @Override
+    public List<Profile> getByStatus(String openTo) throws ProfileNotFoundException {
+        return null;
+    }
+
+    @Override
+    public List<Profile> getByQualification(String qualification) throws ProfileNotFoundException {
+        return null;
+    }
+
+    @Override
+    public List<Profile> getByExperience(int experience) throws ProfileNotFoundException {
+        return null;
     }
 }

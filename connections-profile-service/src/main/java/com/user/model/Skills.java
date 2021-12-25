@@ -12,7 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Entity
-
 public class Skills {
     @Id
     @GeneratedValue(generator = "skills_seq",strategy = GenerationType.AUTO)
