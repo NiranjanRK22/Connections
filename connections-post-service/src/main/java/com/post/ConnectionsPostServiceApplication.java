@@ -41,7 +41,7 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
 
         ProfileDetails profileDetails = new ProfileDetails(OpenTo.OPENTOWORK, "BTech", skillsSet, 1, certificationsSet);
 
-//        Profile profile = new Profile("Amit", "amit@gmail.com", "Software engineer", "https://res.cloudinary.com/dmnrh67gl/image/upload/v1640320468/123.jpg", profileDetails);
+//        Profile profile =
         Like like = new Like(LocalDateTime.now());
         Like like1 = new Like(LocalDateTime.now());
         Like like2 = new Like(LocalDateTime.now());

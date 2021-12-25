@@ -2,6 +2,7 @@ package com.post.service;
 
 import com.post.exceptions.PostNotFoundException;
 import com.post.model.Post;
+import com.post.model.Profile;
 import com.post.repository.IPostRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,16 +30,21 @@ public class PostServiceImpl implements IPostService {
         postRepository.deleteById(postId);
     }
 
+    @Override
+    public List<Profile> getAll() {
+        return null;
+    }
+
     //    @Override
 //    public Post getPostById(int postId) {
 //        return postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException("Post not found"));
 //    }
 //
-    @Override
-    public List<Post> getAll() {
-        return postRepository.findAll();
-    }
-//
+//    @Override
+//    public List<Profile> getAll() {
+//        return postRepository.findAll();
+//    }
+////
 //    @Override
 //    public List<Post> getByPostContent(String postContent)  throws PostNotFoundException {
 ////        List<Post> posts = postRepository.findByPostContent(postContent);
