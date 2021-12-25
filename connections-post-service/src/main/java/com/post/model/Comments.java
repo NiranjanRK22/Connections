@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -32,5 +33,6 @@ public class Comments {
     public Comments(String comment, LocalDateTime commentTime) {
         this.comment = comment;
         this.commentTime = commentTime;
+
     }
 }

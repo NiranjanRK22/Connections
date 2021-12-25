@@ -6,10 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.ws.rs.HEAD;
-
-import java.util.List;
-
 import java.util.Set;
 
 

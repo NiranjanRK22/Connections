@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
+
 
 @Getter
 @Setter
@@ -25,14 +27,16 @@ public class ProfileDetails {
     @Column(length=30)
     private String qualification;
     @Column(length=30)
-    @Enumerated(EnumType.STRING)
-    private Skills skills;
+    @JoinColumn(name = "profiledetailsid")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Skills> skills;
     private int experience;
     @Column(length=30)
-    @Enumerated(EnumType.STRING)
-    private Certifications certifications;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "profiledetailsid")
+    private Set<Certifications> certifications;
 
-    public ProfileDetails(OpenTo openTo, String qualification, Skills skills, int experience, Certifications certifications) {
+    public ProfileDetails(OpenTo openTo, String qualification, Set<Skills> skills, int experience, Set<Certifications> certifications) {
         this.openTo = openTo;
         this.qualification = qualification;
         this.skills = skills;

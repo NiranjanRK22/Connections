@@ -29,24 +29,24 @@ public class PostServiceImpl implements IPostService {
         postRepository.deleteById(postId);
     }
 
-    @Override
-    public Post getPostById(int postId) {
-        return postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException("Post not found"));
-    }
-
+    //    @Override
+//    public Post getPostById(int postId) {
+//        return postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException("Post not found"));
+//    }
+//
     @Override
     public List<Post> getAll() {
         return postRepository.findAll();
     }
-
-    @Override
-    public List<Post> getByPostContent(String postContent)  throws PostNotFoundException {
-        List<Post> posts = postRepository.findByPostContent(postContent);
-        if (posts.isEmpty()) {
-            logger.info("Post not found");
-            logger.warn("PostNotFoundException");
-            throw new PostNotFoundException("Post not found");
-        }
-        return posts;
-    }
+//
+//    @Override
+//    public List<Post> getByPostContent(String postContent)  throws PostNotFoundException {
+////        List<Post> posts = postRepository.findByPostContent(postContent);
+////        if (posts.isEmpty()) {
+////            logger.info("Post not found");
+////            logger.warn("PostNotFoundException");
+////            throw new PostNotFoundException("Post not found");
+////        }
+//        return null;
+//    }
 }

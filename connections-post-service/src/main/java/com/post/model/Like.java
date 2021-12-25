@@ -8,12 +8,13 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-@Entity
 @Table(name="reaction")
+@Entity
 public class Like {
     @Id
     @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)
@@ -31,5 +32,6 @@ public class Like {
 
     public Like(LocalDateTime likeTime) {
         this.likeTime = likeTime;
+
     }
 }

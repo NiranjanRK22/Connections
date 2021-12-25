@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface IPostRepository extends JpaRepository<Post, Integer> {
-    List<Post> findByPostContent(String postContent);
+//    List<Post> findByPostContent(String postContent);
+     List<Post> findByProfile(String profile);
 }
