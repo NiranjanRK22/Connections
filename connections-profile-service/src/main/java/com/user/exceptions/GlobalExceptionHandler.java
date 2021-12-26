@@ -1,4 +1,4 @@
-package com.user.controllers;
+package com.user.exceptions;
 
 import com.user.exceptions.ProfileNotFoundException;
 import com.user.model.ApiErrors;
