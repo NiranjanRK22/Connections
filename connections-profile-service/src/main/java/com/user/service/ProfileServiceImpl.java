@@ -47,41 +47,65 @@ public class ProfileServiceImpl implements IProfileService{
 
     @Override
     public List<Profile> getByName(String name) throws ProfileNotFoundException {
-        return profileRepository.findByName(name);
+        List<Profile> profiles = profileRepository.findByName(name);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found starting with this name or letter");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByBio(String bio) throws ProfileNotFoundException {
-        return profileRepository.findByBio(bio);
+        List<Profile> profiles = profileRepository.findByBio(bio);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this bio");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByStatus(String openTo) throws ProfileNotFoundException {
-        return profileRepository.findByStatus(OpenTo.valueOf(openTo));
+        List<Profile> profiles = profileRepository.findByStatus(OpenTo.valueOf(openTo));
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this status");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByQualification(String qualification) throws ProfileNotFoundException {
-        return profileRepository.findByQualification(qualification);
+        List<Profile> profiles = profileRepository.findByQualification(qualification);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this qualification");
+        return profiles;
     }
 
     @Override
     public List<Profile> getBySkills(String skillName) throws ProfileNotFoundException{
-        return profileRepository.findBySkills(skillName);
+        List<Profile> profiles = profileRepository.findBySkills(skillName);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this skill");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByCertifications(String certificationName) throws ProfileNotFoundException {
-        return profileRepository.findByCertifications(certificationName);
+        List<Profile> profiles = profileRepository.findByCertifications(certificationName);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this certification");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByCertifiedSkills(String skillName, String certificationName) throws ProfileNotFoundException {
-        return profileRepository.findByCertifiedSkills(skillName, certificationName);
+        List<Profile> profiles = profileRepository.findByCertifiedSkills(skillName, certificationName);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this certification and skill");
+        return profiles;
     }
 
     @Override
     public List<Profile> getByExperience(int experience) throws ProfileNotFoundException {
-        return profileRepository.findByExperience(experience);
+        List<Profile> profiles = profileRepository.findByExperience(experience);
+        if (profiles.isEmpty())
+            throw new ProfileNotFoundException("Profiles not found with this experience");
+        return profiles;
     }
 }
