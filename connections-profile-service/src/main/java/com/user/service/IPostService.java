@@ -1,12 +1,7 @@
-package com.post.service;
+package com.user.service;
 
-import com.post.exceptions.PostNotFoundException;
-import com.post.model.Post;
-import com.post.model.Profile;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
+import com.user.model.Post;
 
 
 public interface IPostService {

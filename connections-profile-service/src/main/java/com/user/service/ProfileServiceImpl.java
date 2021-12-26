@@ -1,6 +1,7 @@
 package com.user.service;
 
 import com.user.exceptions.ProfileNotFoundException;
+import com.user.model.OpenTo;
 import com.user.model.Profile;
 import com.user.repository.IProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,21 +47,41 @@ public class ProfileServiceImpl implements IProfileService{
 
     @Override
     public List<Profile> getByName(String name) throws ProfileNotFoundException {
-        return null;
+        return profileRepository.findByName(name);
+    }
+
+    @Override
+    public List<Profile> getByBio(String bio) throws ProfileNotFoundException {
+        return profileRepository.findByBio(bio);
     }
 
     @Override
     public List<Profile> getByStatus(String openTo) throws ProfileNotFoundException {
-        return null;
+        return profileRepository.findByStatus(OpenTo.valueOf(openTo));
     }
 
     @Override
     public List<Profile> getByQualification(String qualification) throws ProfileNotFoundException {
-        return null;
+        return profileRepository.findByQualification(qualification);
+    }
+
+    @Override
+    public List<Profile> getBySkills(String skillName) throws ProfileNotFoundException{
+        return profileRepository.findBySkills(skillName);
+    }
+
+    @Override
+    public List<Profile> getByCertifications(String certificationName) throws ProfileNotFoundException {
+        return profileRepository.findByCertifications(certificationName);
+    }
+
+    @Override
+    public List<Profile> getByCertifiedSkills(String skillName, String certificationName) throws ProfileNotFoundException {
+        return profileRepository.findByCertifiedSkills(skillName, certificationName);
     }
 
     @Override
     public List<Profile> getByExperience(int experience) throws ProfileNotFoundException {
-        return null;
+        return profileRepository.findByExperience(experience);
     }
 }

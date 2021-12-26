@@ -2,6 +2,7 @@ package com.user;
 
 import com.user.model.*;
 import com.user.repository.UserRepository;
+import com.user.service.IPostService;
 import com.user.service.IProfileService;
 import com.user.service.ISkillService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @SpringBootApplication
 public class ConnectionsProfileServiceApplication implements CommandLineRunner {
@@ -36,31 +38,28 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private IPostService postService;
+
 	@Override
 	public void run(String... args) throws Exception {
-//		Skills skill1= new Skills(Skill.BLOCKCHAIN.toString());
+//		Skills skill1= new Skills(Skill.DEVOPS.toString());
 //		Skills skill2= skillService.getSkillById(101);
-//		Skills skill3= new Skills(Skill.GOOGLING.toString());
+//		Skills skill3= new Skills(Skill.HIBERNATE.toString());
 //
-//		Set<Skills> skillsSet=new HashSet<>(Arrays.asList(skill1));
+//		Set<Skills> skillsSet=new HashSet<>(Arrays.asList(skill1, skill3));
 //
 //		Certifications certification1= new Certifications(Certificate.PALO.toString());
-//		Certifications certification2= new Certifications(Certificate.DELLEMC.toString());
-//		Certifications certification3= new Certifications(Certificate.AWS.toString());
+//		Certifications certification2= new Certifications(Certificate.HPE.toString());
+//		Certifications certification3= new Certifications(Certificate.MICROSOFT.toString());
 //
-//		Set<Certifications>certificationsSet=new HashSet<>(Arrays.asList(certification1));
+//		Set<Certifications>certificationsSet=new HashSet<>(Arrays.asList(certification1, certification3));
 //
-//		ProfileDetails profileDetails = new ProfileDetails(OpenTo.OPENTOWORK, "MS",skillsSet, 2, certificationsSet);
+//		ProfileDetails profileDetails = new ProfileDetails(OpenTo.OPENTOWORK, "MS",skillsSet, 3, certificationsSet);
 //
-//		Profile profile = new Profile("Raaj", "raaj@gmail.com", "Software Engineer", "https://res.cloudinary.com/dmnrh67gl/image/upload/v1640320468/123.jpg", profileDetails);
+//		Profile profile = new Profile("Navin", "navin@gmail.com", "Senior Software Engineer", "https://res.cloudinary.com/dmnrh67gl/image/upload/v1640320468/123.jpg", profileDetails);
 //		profileService.addProfile(profile);
 
-//		User user = new User();
-//		user.setUserName("amit@123");
-//		user.setPassword(passwordEncoder.encode("amit"));
-//		user.setActive(1);
-//		user.setRoles("user");
-//		userRepository.save(user);
 
 
 

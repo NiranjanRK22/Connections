@@ -1,5 +1,6 @@
 package com.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,6 +40,6 @@ public class Profile {
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
-
     }
+
 }

@@ -1,21 +1,16 @@
-package com.post.service;
+package com.user.service;
 
-import com.post.exceptions.PostNotFoundException;
-import com.post.model.Post;
-import com.post.model.Profile;
-import com.post.repository.IPostRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
+
+import com.user.model.Post;
+import com.user.repository.IPostRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @Service
 public class PostServiceImpl implements IPostService {
     private IPostRepository postRepository;
-    private final Logger logger = LoggerFactory.getLogger(CommentsServiceImpl.class);
+    //private final Logger logger = LoggerFactory.getLogger(CommentsServiceImpl.class);
 
    // public static final String BASEURL = "http://PROFILE-SERVICE/profile-api";
 
@@ -24,6 +19,11 @@ public class PostServiceImpl implements IPostService {
 //    public PostServiceImpl(RestTemplate restTemplate) {
 //        this.restTemplate = restTemplate;
 //    }
+
+    @Autowired
+    public void setPostRepository(IPostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     @Override
     public Post addPost(Post post) {

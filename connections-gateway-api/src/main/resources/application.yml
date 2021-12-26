@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/
+
+
+
+
+  # declarative properties for routes
+  #each route has an id, uri, predicates(path), filters
+
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: profileService
+          uri: lb://PROFILE-SERVICE
+          predicates:
+            - Path=/profile-api/**
+        - id: postService
+          uri: lb://POST-SERVICE
+          predicates:
+            - Path=/posts-api/**
+        - id: jobService
+          uri: lb://JOB-SERVICE
+          predicates:
+            - Path=/job-api/**

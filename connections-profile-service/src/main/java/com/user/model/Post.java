@@ -1,5 +1,6 @@
 package com.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,6 +34,7 @@ public class Post {
     Set<Comments> comments;
     @ManyToOne
     @JoinColumn(name="profileid")
+    @JsonIgnore
     Profile profile;
 
     public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> comments, Profile profile) {

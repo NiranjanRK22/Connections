@@ -1,7 +1,9 @@
 package com.post.controllers;
 
 import com.post.model.Post;
+import com.post.model.Profile;
 import com.post.service.IPostService;
+import com.post.service.IProfileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -14,13 +16,27 @@ import java.util.List;
 @RestController
 @RequestMapping("/posts-api")
 public class PostController {
-    private final IPostService postService;
+    //private final IPostService postService;
     private final Logger logger = LoggerFactory.getLogger(PostController.class);
 
-    public PostController(IPostService postService) {
-        this.postService = postService;
+//    public PostController(IPostService postService) {
+//        this.postService = postService;
+//    }
+    private IProfileService profileService;
+
+    public PostController(IProfileService profileService) {
+        this.profileService = profileService;
     }
 
+    //    @GetMapping("/profiles")
+//    List<Profile> getAll()  {
+//        return postService.getAll();
+//    }
+
+      @GetMapping("post/profiles/id/{profileId}")
+      Profile showProfileById(@PathVariable("profileId") int profileId)  {
+        return  profileService.getProfileById(profileId);
+      }
 //    @PostMapping("/post/create")
 //    ResponseEntity<Post> createPost(@RequestBody Post post) {
 //        HttpHeaders headers = new HttpHeaders();
