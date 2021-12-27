@@ -23,3 +23,28 @@ spring:
 #    import: configserver:http://localhost:8888/
 #  profiles:
 #    active: dev,prod
+
+
+#Logging:
+#  level:
+#    root: WARN
+#    org:
+#      springframework: debug
+#    com:
+#      jobs: debug
+#  pattern:
+#    console: %d{yyyy-MM-dd HH:mm:ss} [%thread] -> %msg%n
+#  filename: C:/Users/RajasekharMandireddy/Training/Group Project Connections/Connections/connections-jobs-service/log/app.log
+
+#      #set default logging
+#      logging.level.root=WARN
+#
+#      # setting the logging level
+#      logging.level.org.springframework=debug
+#      logging.level.com.greetapp=debug
+#
+#      # logging pattern for console
+#      logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] -> %msg%n
+#
+#      #appending to a file
+#      logging.file.name=C:/Users/RajasekharMandireddy/Training/IntelliJ/spring/spring-logging-restapi/log/app.log
