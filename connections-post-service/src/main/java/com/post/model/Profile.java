@@ -1,5 +1,6 @@
 package com.post.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,10 +9,10 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class Profile {
     @Id
@@ -25,10 +26,11 @@ public class Profile {
     @Column(name="profileimage")
     private String profileImage;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profiledetails")
+    @JoinColumn(name="profiledetailsid")
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
+    @JsonIgnore
     private Set<Post> posts;
 
 
@@ -39,5 +41,16 @@ public class Profile {
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", bio='" + bio + '\'' +
+                ", profileImage='" + profileImage + '\'' +
+                ", profileDetails=" + profileDetails +
+                '}';
     }
 }

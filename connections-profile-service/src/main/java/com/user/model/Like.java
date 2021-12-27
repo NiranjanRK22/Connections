@@ -1,5 +1,6 @@
 package com.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,15 +8,13 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Set;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
-@Entity
 @Table(name="reaction")
+@Entity
 public class Like {
     @Id
     @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)
@@ -26,12 +25,22 @@ public class Like {
     private LocalDateTime likeTime;
     @ManyToOne
     @JoinColumn(name="postid")
+    @JsonIgnore
     Post post;
     @ManyToOne
     @JoinColumn(name="profileid")
+    @JsonIgnore
+
     Profile profile;
 
     public Like(LocalDateTime likeTime) {
         this.likeTime = likeTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Like{" +
+                "likeTime=" + likeTime +
+                '}';
     }
 }

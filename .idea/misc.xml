@@ -3,11 +3,20 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/connections-jobs-service/pom.xml" />
         <option value="$PROJECT_DIR$/connections-eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/connections-config-server/pom.xml" />
         <option value="$PROJECT_DIR$/connections-post-service/pom.xml" />
         <option value="$PROJECT_DIR$/connections-profile-service/pom.xml" />
+=======
+        <option value="$PROJECT_DIR$/connections-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-profile-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-post-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-jobs-service/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/connections-gateway-api/pom.xml" />
+>>>>>>> c87e94d6e553c1c795a77058e21e265ed2edbf0f
       </list>
     </option>
   </component>
