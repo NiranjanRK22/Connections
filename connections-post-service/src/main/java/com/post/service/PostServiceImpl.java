@@ -6,6 +6,7 @@ import com.post.model.Profile;
 import com.post.repository.IPostRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,16 +15,14 @@ import java.util.List;
 
 @Service
 public class PostServiceImpl implements IPostService {
+
     private IPostRepository postRepository;
     private final Logger logger = LoggerFactory.getLogger(CommentsServiceImpl.class);
 
-   // public static final String BASEURL = "http://PROFILE-SERVICE/profile-api";
-
-   // private RestTemplate restTemplate;
-
-//    public PostServiceImpl(RestTemplate restTemplate) {
-//        this.restTemplate = restTemplate;
-//    }
+    @Autowired
+    public void setPostRepository(IPostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     @Override
     public Post addPost(Post post) {
@@ -60,11 +59,11 @@ public class PostServiceImpl implements IPostService {
 //        return postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException("Post not found"));
 //    }
 //
-//    @Override
-//    public List<Profile> getAll() {
-//        return postRepository.findAll();
-//    }
-////
+    @Override
+    public List<Post> getAll() {
+        return postRepository.findAll();
+    }
+
 //    @Override
 //    public List<Post> getByPostContent(String postContent)  throws PostNotFoundException {
 ////        List<Post> posts = postRepository.findByPostContent(postContent);

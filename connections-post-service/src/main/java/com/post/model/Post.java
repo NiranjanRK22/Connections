@@ -1,5 +1,6 @@
 package com.post.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+
 @Entity
 public class Post {
     @Id
@@ -24,12 +25,15 @@ public class Post {
     String topic;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
+            @JsonIgnore
     Set<Like> likes;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
+            @JsonIgnore
     Set<Comments> comments;
     @ManyToOne
     @JoinColumn(name="profileid")
+    @JsonIgnore
     Profile profile;
 
     public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> comments, Profile profile) {
@@ -39,5 +43,14 @@ public class Post {
         this.likes = likes;
         this.comments = comments;
         this.profile = profile;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", topic='" + topic + '\'' +
+                '}';
     }
 }

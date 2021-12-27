@@ -6,6 +6,7 @@ import com.post.service.IPostService;
 import com.post.service.IProfileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/posts-api")
 public class PostController {
-    //private final IPostService postService;
+    private IPostService postService;
+
     private final Logger logger = LoggerFactory.getLogger(PostController.class);
 
-//    public PostController(IPostService postService) {
-//        this.postService = postService;
-//    }
+    @Autowired
+    public void setPostService(IPostService postService) {
+        this.postService = postService;
+    }
+
     private IProfileService profileService;
 
     public PostController(IProfileService profileService) {
@@ -71,11 +75,11 @@ public class PostController {
 //        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(post);
 //    }
 //
-//    @GetMapping("/posts")
-//    ResponseEntity<List<Post>> getAll() {
-//        HttpHeaders headers = new HttpHeaders();
-//        List<Post> posts = postService.getAll();
-//        logger.info("getAll()");
-//        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(posts);
-//    }
+    @GetMapping("/posts")
+    ResponseEntity<List<Post>> getAll() {
+        HttpHeaders headers = new HttpHeaders();
+        List<Post> posts = postService.getAll();
+        logger.info("getAll()");
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(posts);
+    }
 }

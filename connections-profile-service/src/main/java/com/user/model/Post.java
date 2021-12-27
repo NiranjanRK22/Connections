@@ -28,12 +28,17 @@ public class Post {
     String topic;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
+            @ToString.Exclude
     Set<Like> likes;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="postid")
+    @ToString.Exclude
+
     Set<Comments> comments;
     @ManyToOne
     @JoinColumn(name="profileid")
+    @ToString.Exclude
+
     @JsonIgnore
     Profile profile;
 
@@ -44,5 +49,13 @@ public class Post {
         this.likes = likes;
         this.comments = comments;
         this.profile = profile;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +"title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", topic='" + topic + '\'' +
+                '}';
     }
 }

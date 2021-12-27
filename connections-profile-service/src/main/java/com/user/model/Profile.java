@@ -13,7 +13,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class Profile {
     @Id
@@ -31,6 +30,7 @@ public class Profile {
     private ProfileDetails profileDetails;
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="profileid")
+    @JsonIgnore
     private Set<Post> posts;
 
 
@@ -42,4 +42,14 @@ public class Profile {
         this.profileDetails = profileDetails;
     }
 
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", bio='" + bio + '\'' +
+                ", profileImage='" + profileImage + '\'' +
+                ", profileDetails=" + profileDetails +
+                '}';
+    }
 }

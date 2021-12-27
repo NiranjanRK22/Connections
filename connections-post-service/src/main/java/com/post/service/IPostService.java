@@ -17,7 +17,7 @@ public interface IPostService {
     void deletePost(int postId);
 
 
-    //List<Profile> getAll();
+    List<Post> getAll();
 
 
 
