@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @ToString
 @Entity
 
@@ -20,6 +20,9 @@ public class Skills {
     @Column(name = "skillsid")
     private Integer skillsId;
     private String skillName;
+
+    public Skills() {
+    }
 
     public Skills(String skillName) {
         this.skillName = skillName;

@@ -12,26 +12,29 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@Table(name="reaction")
+@Table(name = "reaction")
 @Entity
 public class Like {
     @Id
-    @GeneratedValue(generator = "like_seq",strategy = GenerationType.AUTO)
-    @SequenceGenerator(name="like_seq",sequenceName = "like_sequence",initialValue = 401,allocationSize = 1)
+    @GeneratedValue(generator = "like_seq", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "like_seq", sequenceName = "like_sequence", initialValue = 401, allocationSize = 1)
     @Column(name = "likeid")
     private Integer likeId;
-    @Column(name="liketime")
+    @Column(name = "liketime")
     private LocalDateTime likeTime;
     @ManyToOne
-    @JoinColumn(name="postid")
+    @JoinColumn(name = "postid")
     @JsonIgnore
     Post post;
     @ManyToOne
-    @JoinColumn(name="profileid")
+    @JoinColumn(name = "profileid")
+    @ToString.Exclude
     @JsonIgnore
 
     Profile profile;
+
+    public Like() {
+    }
 
     public Like(LocalDateTime likeTime) {
         this.likeTime = likeTime;

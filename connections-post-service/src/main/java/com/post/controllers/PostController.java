@@ -26,7 +26,7 @@ public class PostController {
         this.postService = postService;
     }
 
-    private IProfileService profileService;
+    private final IProfileService profileService;
 
     public PostController(IProfileService profileService) {
         this.profileService = profileService;
@@ -37,18 +37,22 @@ public class PostController {
 //        return postService.getAll();
 //    }
 
-      @GetMapping("post/profiles/id/{profileId}")
-      Profile showProfileById(@PathVariable("profileId") int profileId)  {
-        return  profileService.getProfileById(profileId);
-      }
-//    @PostMapping("/post/create")
-//    ResponseEntity<Post> createPost(@RequestBody Post post) {
-//        HttpHeaders headers = new HttpHeaders();
-//        Post newPost = postService.addPost(post);
-//        logger.info("createPost()");
-//        return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(newPost);
-//    }
-//
+    @GetMapping("post/profiles/id/{profileId}")
+    Profile showProfileById(@PathVariable("profileId") int profileId) {
+        Profile profile = profileService.getProfileById(profileId);
+        System.out.println(profile);
+        return profile;
+    }
+
+    @PostMapping("/post/create")
+    ResponseEntity<Post> createPost(@RequestBody Post post) {
+        HttpHeaders headers = new HttpHeaders();
+        Post newPost = postService.addPost(post);
+        logger.info("createPost()");
+        return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(newPost);
+    }
+
+    //
 //    @PutMapping("/post/update")
 //    ResponseEntity<Void> updatePost(@RequestBody Post post) {
 //        HttpHeaders headers = new HttpHeaders();
@@ -58,14 +62,14 @@ public class PostController {
 //        return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
 //    }
 //
-//    @DeleteMapping("/post/deleteById/{deleteById}")
-//    ResponseEntity<Void> deletePost(@PathVariable("deleteById") int id) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("desc", "Track deleted successfully");
-//        postService.deletePost(id);
-//        logger.info("deletePost()");
-//        return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
-//    }
+    @DeleteMapping("/post/id/{deleteById}")
+    ResponseEntity<Void> deletePost(@PathVariable("deleteById") int id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Track deleted successfully");
+        postService.deletePost(id);
+        logger.info("deletePost()");
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
+    }
 //
 //    @GetMapping("/post/postId/{postId}")
 //    ResponseEntity<Post> getPostById(@PathVariable("postId") int id) {
@@ -75,6 +79,7 @@ public class PostController {
 //        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(post);
 //    }
 //
+
     @GetMapping("/posts")
     ResponseEntity<List<Post>> getAll() {
         HttpHeaders headers = new HttpHeaders();

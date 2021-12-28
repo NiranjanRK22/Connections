@@ -14,8 +14,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@ToString
 @Entity
 public class Post {
     @Id
@@ -41,6 +39,9 @@ public class Post {
 
     @JsonIgnore
     Profile profile;
+
+    public Post() {
+    }
 
     public Post(String title, String description, String topic, Set<Like> likes, Set<Comments> comments, Profile profile) {
         this.title = title;

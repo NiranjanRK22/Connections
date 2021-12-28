@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @Entity
 public class Comments {
     @Id
@@ -38,10 +38,53 @@ public class Comments {
     @JsonIgnore
     private Profile profile;
 
+    public Comments() {
+    }
+
     public Comments(String comment, LocalDateTime commentTime) {
         this.comment = comment;
         this.commentTime = commentTime;
 
+    }
+
+    public Integer getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public LocalDateTime getCommentTime() {
+        return commentTime;
+    }
+
+    public void setCommentTime(LocalDateTime commentTime) {
+        this.commentTime = commentTime;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     @Override

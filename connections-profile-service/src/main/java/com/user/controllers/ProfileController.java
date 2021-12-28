@@ -74,7 +74,7 @@ public class ProfileController {
         headers.add("desc", "Getting profile by Id");
         Profile profile = profileService.getProfileById(profileId);
         logger.info("Got one profile " +profile);
-        return ResponseEntity.ok().headers(headers).body(profile);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body(profile);
     }
 
     @GetMapping("/profiles")
