@@ -14,9 +14,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
-@Getter
-@Setter
-@NoArgsConstructor
+
 @Table(name="reaction")
 @Entity
 public class Like {
@@ -38,9 +36,44 @@ public class Like {
     @JsonIgnore
     Profile profile;
 
+    public Like() {
+    }
+
     public Like(LocalDateTime likeTime) {
         this.likeTime = likeTime;
 
+    }
+
+    public void setLikeId(Integer likeId) {
+        this.likeId = likeId;
+    }
+
+    public void setLikeTime(LocalDateTime likeTime) {
+        this.likeTime = likeTime;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public Integer getLikeId() {
+        return likeId;
+    }
+
+    public LocalDateTime getLikeTime() {
+        return likeTime;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public Profile getProfile() {
+        return profile;
     }
 
     @Override

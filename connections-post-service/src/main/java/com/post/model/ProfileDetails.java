@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @ToString
 @Entity
 @Table(name="profiledetails")
@@ -35,6 +35,9 @@ public class ProfileDetails {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "profiledetailsid")
     private Set<Certifications> certifications;
+
+    public ProfileDetails() {
+    }
 
     public ProfileDetails(OpenTo openTo, String qualification, Set<Skills> skills, int experience, Set<Certifications> certifications) {
         this.openTo = openTo;

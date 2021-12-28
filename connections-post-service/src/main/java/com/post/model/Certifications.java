@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @ToString
 @Entity
 public class Certifications {
@@ -20,6 +20,9 @@ public class Certifications {
     @Column(name = "certificationsid")
     private Integer certificationsId;
     private String certificationName;
+
+    public Certifications() {
+    }
 
     public Certifications(String certificationName) {
         this.certificationName = certificationName;

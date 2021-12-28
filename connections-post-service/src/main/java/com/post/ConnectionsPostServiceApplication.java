@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
@@ -31,22 +32,16 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
         SpringApplication.run(ConnectionsPostServiceApplication.class, args);
     }
 
-//    @Bean
-//    @LoadBalanced
-//    public RestTemplate restTemplate()  {
-//        return new RestTemplate();
-//    }
 
     @Override
     public void run(String... args) throws Exception {
-
 
         Like like = new Like(LocalDateTime.now());
         Like like1 = new Like(LocalDateTime.now());
         Like like2 = new Like(LocalDateTime.now());
         Like like3 = new Like(LocalDateTime.now());
-        Like like4 = new Like(LocalDateTime.now());
-        Like like5 = new Like(LocalDateTime.now());
+//        Like like4 = new Like(LocalDateTime.now());
+//        Like like5 = new Like(LocalDateTime.now());
 
         Comments comment = new Comments("Good", LocalDateTime.now());
         Comments comment1 = new Comments("Excellent", LocalDateTime.now());
@@ -64,40 +59,42 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
         Profile profile4 = profileService.getProfileById(105);
         Profile profile5 = profileService.getProfileById(106);
 
-
-        comment2.setProfile(profile4);
-        comment3.setProfile(profile5);
-        comment5.setProfile(profile4);
-        Set<Comments> comments = new HashSet<>(Arrays.asList(comment2, comment3,comment5));
+//        comment2.setProfile(profile4);
+        comment6.setProfile(profile5);
+        comment4.setProfile(profile2);
+        Set<Comments> comments = new HashSet<>(List.of(comment4, comment6));
 
 
 //        like.setProfile(profile1);
-        like4.setProfile(profile3);
-        like5.setProfile(profile3);
+//        like1.setProfile(profile5);
+//        System.out.println(like3);
+//        System.out.println(comment3.getProfile());
+
+        like2.setProfile(profile2);
         like3.setProfile(profile3);
-        Set<Like> likes = new HashSet<>(Arrays.asList(like2, like1, like3));
+        Set<Like> likes = new HashSet<>(List.of(like2, like3));
 
-
+//
         Post post1 = new Post("Monday motivation", "After a relaxing weekend, Monday rolls around to snap everyone back to reality.",
-                "motivation", likes, comments, profile);
+                "motivation", likes, comments, profile1);
 
         Post post2 = new Post("How to get a job in the tech industry", "We spend hundreds and thousands of rupees in getting a degree with the aim to earn a livelihood. Anyone who passes out from the college wants to get on the job as soon as possible. ",
-                "job", likes, comments, profile);
+                "job", likes, comments, profile2);
 
         Post post3 = new Post("The two shutdowns could signal a broader pullback from ephemeral video products among social media companies.", "However, it seems unlikely that Snapchat or Instagram will be giving up on their Stories products anytime soon", "social media",
-                likes, comments, profile);
+                likes, comments, profile3);
 
         Post post4 = new Post("Many of life’s failures ", "Many of life’s failures are people who did not realize how close they were to success when they gave up.Many of life’s failures are people who did not realize how close they were to success when they gave up.", "Quotes",
                 likes, comments, profile4);
-
-        Post post5 = new Post("Time", "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.","Quote",
+//
+        Post post5 = new Post("Time", "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.", "Quote",
                 likes, comments, profile5);
 
-
-//        postService.addPost(post5);
-
-
-        postService.updatePost(post4);
+//
+//        postService.addPost(post1);
+//        postService.addPost(post2);
+//        postService.addPost(post3);
+//        postService.addPost(post4);
 
     }
 }

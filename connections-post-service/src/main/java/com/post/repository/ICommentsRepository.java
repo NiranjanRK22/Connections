@@ -9,10 +9,19 @@ import java.util.List;
 
 @Repository
 public interface ICommentsRepository extends JpaRepository<Comments, Integer> {
-
+    /**
+     *
+     * @param postId
+     * @return
+     */
     @Query("from Comments c inner join c.post p where p.postId = ?1")
     List<Comments> findByPostId(int postId);
 
-    @Query("from Comments c where comment LIKE %?1%")
+    /**
+     *
+     * @param content
+     * @return
+     */
+    @Query("from Comments c where c.comment LIKE %?1%")
     List<Comments> findByCommentContent(String content);
 }

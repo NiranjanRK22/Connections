@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Comments {
     @Id
@@ -33,6 +32,9 @@ public class Comments {
     @JsonIgnore
 
     private Profile profile;
+
+    public Comments() {
+    }
 
     public Comments(String comment, LocalDateTime commentTime) {
         this.comment = comment;

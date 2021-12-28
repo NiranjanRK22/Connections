@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @Entity
 public class Profile {
     @Id
@@ -33,6 +33,8 @@ public class Profile {
     @JsonIgnore
     private Set<Post> posts;
 
+    public Profile() {
+    }
 
     public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails) {
         this.name = name;
