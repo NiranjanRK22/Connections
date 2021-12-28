@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-
 @Entity
 public class Comments {
     @Id

@@ -62,7 +62,7 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
 //        comment2.setProfile(profile4);
         comment6.setProfile(profile5);
         comment4.setProfile(profile2);
-        Set<Comments> comments = new HashSet<>(List.of(comment4,comment6));
+        Set<Comments> comments = new HashSet<>(List.of(comment4, comment6));
 
 
 //        like.setProfile(profile1);
@@ -72,7 +72,7 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
 
         like2.setProfile(profile2);
         like3.setProfile(profile3);
-        Set<Like> likes = new HashSet<>(List.of(like2,like3));
+        Set<Like> likes = new HashSet<>(List.of(like2, like3));
 
 //
         Post post1 = new Post("Monday motivation", "After a relaxing weekend, Monday rolls around to snap everyone back to reality.",
@@ -94,7 +94,7 @@ public class ConnectionsPostServiceApplication implements CommandLineRunner {
 //        postService.addPost(post1);
 //        postService.addPost(post2);
 //        postService.addPost(post3);
-        postService.addPost(post4);
+//        postService.addPost(post4);
 
     }
 }

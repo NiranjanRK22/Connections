@@ -12,10 +12,10 @@ public interface ICommentsService {
 
     void deleteComment(int commentId);
 
-//    Comments getComment(int commentId) throws CommentNotFoundException;
-//
-//    List<Comments> getByPostId(int postId) throws CommentNotFoundException;
-//
-//    List<Comments> getByCommentContent(String content) throws CommentNotFoundException;
+    Comments getComment(int commentId) throws CommentNotFoundException;
+
+    List<Comments> getByPostId(int postId) throws CommentNotFoundException;
+
+    List<Comments> getByCommentContent(String content) throws CommentNotFoundException;
 
 }

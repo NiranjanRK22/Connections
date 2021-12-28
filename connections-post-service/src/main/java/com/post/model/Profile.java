@@ -9,9 +9,9 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Set;
 
-
-@Getter
-@Setter
+/**
+ *
+ */
 
 @Entity
 public class Profile {
@@ -47,6 +47,54 @@ public class Profile {
 
     }
 
+    public Integer getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Integer profileId) {
+        this.profileId = profileId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
@@ -54,7 +102,6 @@ public class Profile {
                 ", email='" + email + '\'' +
                 ", bio='" + bio + '\'' +
                 ", profileImage='" + profileImage + '\'' +
-                ", profileDetails=" + profileDetails +
                 '}';
     }
 }
