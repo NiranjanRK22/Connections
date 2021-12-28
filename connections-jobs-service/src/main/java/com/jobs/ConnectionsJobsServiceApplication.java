@@ -21,13 +21,13 @@ public class ConnectionsJobsServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Company company = new Company("Google","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/375px-Google_2015_logo.svg.png",
-				"California", IndustryType.INFORMATIONSECURITY,1998);
-		JobDetails jobDetails= new JobDetails(2,1,1000000,1.0);
+		Company company = new Company("Amazon","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/263px-Amazon_logo.svg.png",
+				"Seatle", IndustryType.ECOMMERCE,1994);
+		JobDetails jobDetails= new JobDetails(2,3,500000,3.4);
 
-		Job job= new Job("Customer Engineer", EmploymentType.PARTTIME,"Experience in web application development/integration and with software development platforms/solutions.\n" +
-				"Experience in data and information management, as it relates to Big Data trends and issues within businesses.","hyderabad",jobDetails,company);
+		Job job= new Job("Software development manager", EmploymentType.FULLTIME,"3+ years of people management experience, managing engineers\n" +
+				"· Experience in partnering with product and program management teams","hyderabad",jobDetails,company);
 
-		jobService.addJob(job);
+	//	jobService.addJob(job);
 	}
 }

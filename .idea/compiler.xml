@@ -7,16 +7,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="connections-post-service" />
+        <module name="connections-eureka-server" />
+        <module name="connections-config-server" />
         <module name="connections-jobs-service" />
+        <module name="connections-profile-service" />
+        <module name="connections-gateway-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="connections-config-server" target="11" />
+      <module name="connections-eureka-server" target="11" />
+      <module name="connections-gateway-api" target="11" />
       <module name="connections-jobs-service" target="11" />
+      <module name="connections-post-service" target="11" />
+      <module name="connections-profile-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="connections-config-server" options="-parameters" />
+      <module name="connections-eureka-server" options="-parameters" />
+      <module name="connections-gateway-api" options="-parameters" />
       <module name="connections-jobs-service" options="-parameters" />
+      <module name="connections-post-service" options="-parameters" />
+      <module name="connections-profile-service" options="-parameters" />
     </option>
   </component>
 </project>
