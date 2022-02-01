@@ -3,10 +3,13 @@ package com.post.service;
 import com.post.exceptions.CommentNotFoundException;
 import com.post.model.Comments;
 import com.post.repository.ICommentsRepository;
+import org.apache.http.client.methods.RequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,11 +18,13 @@ import java.util.List;
 
 @Service
 public class CommentsServiceImpl implements ICommentsService {
+
+    @Autowired
     private ICommentsRepository commentsRepository;
+
     private final Logger logger = LoggerFactory.getLogger(CommentsServiceImpl.class);
 
     /**
-     *
      * @param comment
      * @return
      */
@@ -29,7 +34,6 @@ public class CommentsServiceImpl implements ICommentsService {
     }
 
     /**
-     *
      * @param comment
      */
     @Override
@@ -38,7 +42,6 @@ public class CommentsServiceImpl implements ICommentsService {
     }
 
     /**
-     *
      * @param commentId
      */
     @Override
@@ -47,7 +50,6 @@ public class CommentsServiceImpl implements ICommentsService {
     }
 
     /**
-     *
      * @param commentId
      * @return
      */
@@ -56,30 +58,22 @@ public class CommentsServiceImpl implements ICommentsService {
         return commentsRepository.findById(commentId).orElseThrow(() -> new CommentNotFoundException("Comment not found"));
     }
 
-    /**
-     *
-     * @param postId
-     * @return
-     * @throws CommentNotFoundException
-     */
+
     @Override
-    public List<Comments> getByPostId(int postId) throws CommentNotFoundException {
-        List<Comments> comments = commentsRepository.findByPostId(postId);
+    public List<Comments> getCommentsByPostId(int postId) throws CommentNotFoundException {
+        List<Comments> comments = new ArrayList<Comments>();
+        comments = commentsRepository.findCommentsByPostId(postId);
+
         if (comments.isEmpty()) {
             logger.warn("throws CommentNotFoundException");
             logger.error("Comments not found");
             throw new CommentNotFoundException("Comment not found");
         }
+
         return comments;
     }
 
-    /**
-     *
-     * @param content
-     * @return
-     * @throws CommentNotFoundException
-     */
-    @Override
+
     public List<Comments> getByCommentContent(String content) throws CommentNotFoundException {
         List<Comments> comments = commentsRepository.findByCommentContent(content);
         if (comments.isEmpty()) {

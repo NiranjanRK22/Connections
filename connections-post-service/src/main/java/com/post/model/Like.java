@@ -29,11 +29,11 @@ public class Like {
     private LocalDateTime likeTime;
     @ManyToOne
     @JoinColumn(name="postid")
-    @JsonIgnore
+
     Post post;
     @ManyToOne
     @JoinColumn(name="profileid")
-    @JsonIgnore
+
     Profile profile;
 
     public Like() {

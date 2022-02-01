@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("job-api")
 public class JobController {
@@ -23,7 +24,7 @@ public class JobController {
 
     private Logger logger = LoggerFactory.getLogger(JobController.class);
 
-    @PostMapping("/job")
+    @PostMapping("/jobs")
     public ResponseEntity<Job> addJob(@RequestBody Job job) {
         logger.debug("inside add job ");
         HttpHeaders headers = new HttpHeaders();
@@ -33,7 +34,7 @@ public class JobController {
         return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(njob);
     }
 
-    @PutMapping("/job")
+    @PutMapping("/jobs")
     public ResponseEntity<Job> updateJob(Job job) {
         logger.debug("inside update job ");
         HttpHeaders headers = new HttpHeaders();
@@ -43,7 +44,7 @@ public class JobController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
     }
 
-    @DeleteMapping("/job/{jobid}")
+    @DeleteMapping("/jobs/{jobid}")
     public ResponseEntity<Job> deleteJob(int jobId) {
         logger.debug("inside delete job ");
         HttpHeaders headers = new HttpHeaders();

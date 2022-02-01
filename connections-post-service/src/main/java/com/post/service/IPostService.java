@@ -27,5 +27,4 @@ public interface IPostService {
     List<Post> getByPostContent(String postContent) throws PostNotFoundException;
 
 
-
 }
