@@ -3,6 +3,7 @@ package com.jobs.service;
 
 import com.jobs.exceptions.JobNotFoundException;
 
+import com.jobs.model.Company;
 import com.jobs.model.EmploymentType;
 import com.jobs.model.IndustryType;
 import com.jobs.model.Job;
@@ -28,6 +29,7 @@ public class JobServiceImpl implements IJobService{
     public Job addJob(Job job) throws JobNotFoundException {
         return jobRepository.save(job);
     }
+
 
     /**
      *
@@ -139,6 +141,11 @@ public class JobServiceImpl implements IJobService{
         if(jobs.isEmpty())
             throw  new JobNotFoundException("No jobs found in "+ location);
         return jobs;
+    }
+
+    @Override
+    public Company getByCompanyName(String companyName) throws JobNotFoundException {
+        return jobRepository.findByCompanyName(companyName);
     }
 
     /**

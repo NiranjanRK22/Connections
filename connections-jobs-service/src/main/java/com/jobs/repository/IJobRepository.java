@@ -1,6 +1,7 @@
 package com.jobs.repository;
 
 import com.jobs.exceptions.JobNotFoundException;
+import com.jobs.model.Company;
 import com.jobs.model.EmploymentType;
 import com.jobs.model.IndustryType;
 import com.jobs.model.Job;
@@ -29,6 +30,9 @@ public interface IJobRepository extends JpaRepository<Job, Integer> {
 
     @Query("from  Job j inner join j.company c where c.companyName LIKE %?1%")
     List<Job> findByCompany(String company) throws JobNotFoundException;
+
+    @Query("from Company c where c.companyName LIKE %?1%")
+    Company findByCompanyName(String companyName) throws JobNotFoundException;
 
     @Query("from Job j where j.employmentType=?1 and j.location=?2")
     List<Job> findByTypeAndLocation(EmploymentType employmentType, String location) throws JobNotFoundException;

@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
+
 
 public class Job {
     @Id
@@ -39,7 +39,10 @@ public class Job {
     @OneToOne(cascade = CascadeType.ALL)
     JobDetails jobDetails;
 
-    public Job(String title, EmploymentType employmentType, String description, String location,  JobDetails jobDetails,Company company) {
+    public Job() {
+    }
+
+    public Job(String title, EmploymentType employmentType, String description, String location, JobDetails jobDetails, Company company) {
         this.title = title;
         this.employmentType = employmentType;
         this.description = description;

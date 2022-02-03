@@ -8,7 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -33,5 +32,8 @@ public class JobDetails {
         this.vacancies = vacancies;
         this.salary = salary;
         this.rating = rating;
+    }
+
+    public JobDetails() {
     }
 }

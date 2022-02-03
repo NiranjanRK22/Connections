@@ -10,7 +10,7 @@ import java.util.Set;
 
 
 @Entity
-@NoArgsConstructor
+
 @Getter
 @Setter
 @ToString
@@ -39,6 +39,9 @@ public class Company {
     @OneToMany( fetch = FetchType.EAGER)
 
     private Set<Job> jobs;
+
+    public Company() {
+    }
 
     public Company(String companyName, String logo, String headQuarters, IndustryType industryType, int foundedYear) {
         this.companyName = companyName;

@@ -1,6 +1,7 @@
 package com.jobs.controllers;
 
 import com.jobs.exceptions.JobNotFoundException;
+import com.jobs.model.Company;
 import com.jobs.model.Job;
 import com.jobs.service.IJobService;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("job-api")
 public class JobController {
@@ -23,7 +25,7 @@ public class JobController {
 
     private Logger logger = LoggerFactory.getLogger(JobController.class);
 
-    @PostMapping("/job")
+    @PostMapping("/jobs")
     public ResponseEntity<Job> addJob(@RequestBody Job job) {
         logger.debug("inside add job ");
         HttpHeaders headers = new HttpHeaders();
@@ -33,7 +35,7 @@ public class JobController {
         return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(njob);
     }
 
-    @PutMapping("/job")
+    @PutMapping("/jobs")
     public ResponseEntity<Job> updateJob(Job job) {
         logger.debug("inside update job ");
         HttpHeaders headers = new HttpHeaders();
@@ -43,7 +45,7 @@ public class JobController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
     }
 
-    @DeleteMapping("/job/{jobid}")
+    @DeleteMapping("/jobs/{jobid}")
     public ResponseEntity<Job> deleteJob(int jobId) {
         logger.debug("inside delete job ");
         HttpHeaders headers = new HttpHeaders();
@@ -128,6 +130,20 @@ public class JobController {
         logger.info("getting a jobs by company"+jobs);
         return ResponseEntity.ok().headers(headers).body(jobs);
     }
+
+    @GetMapping("/jobs/companyName/{companyName}")
+    ResponseEntity<Company>getByCompanyName(@PathVariable("companyName") String companyName) {
+        logger.debug("inside job by company");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting jobs by company name");
+
+        Company company = jobService.getByCompanyName(companyName);
+        System.out.println(company);
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(company);
+
+
+    }
+
 
     @GetMapping("/jobs/employmenttype/{employmenttype}/location/{location}")
     ResponseEntity<List<Job>> getByTypeAndLocation(@PathVariable("employmenttype") String employmentType, @PathVariable("location") String location) {
@@ -228,5 +244,7 @@ public class JobController {
         logger.info("getting a jobs by experience and salary range"+jobs);
         return ResponseEntity.ok().headers(headers).body(jobs);
     }
+
+
 
 }
