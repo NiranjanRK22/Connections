@@ -82,7 +82,7 @@ public class PostServiceImpl implements IPostService {
     public List<Post> getPostsByProfile(int profileId) {
         List<Post> posts = postRepository.findPostsByProfile(profileId);
         if (posts.isEmpty()) {
-            logger.info("Post not found");
+            logger.info("Posts not found");
             logger.warn("PostNotFoundException");
             throw new PostNotFoundException("Post not found");
         }

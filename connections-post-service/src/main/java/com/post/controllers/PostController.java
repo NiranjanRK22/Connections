@@ -2,9 +2,11 @@ package com.post.controllers;
 
 import com.post.exceptions.CommentNotFoundException;
 import com.post.model.Comments;
+import com.post.model.Like;
 import com.post.model.Post;
 import com.post.model.Profile;
 import com.post.service.ICommentsService;
+import com.post.service.ILikeService;
 import com.post.service.IPostService;
 import com.post.service.IProfileService;
 import org.slf4j.Logger;
@@ -20,11 +22,18 @@ import java.util.List;
 /**
  *
  */
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/posts-api")
 public class PostController {
     private IPostService postService;
     private ICommentsService commentsService;
+    private ILikeService likeService;
+
+    @Autowired
+    public void setLikeService(ILikeService likeService) {
+        this.likeService = likeService;
+    }
 
     /**
      * @param commentsService
@@ -54,10 +63,6 @@ public class PostController {
         this.profileService = profileService;
     }
 
-    //        @GetMapping("/profiles")
-//    List<Profile> getAll()  {
-//        return postService.getAll();
-//    }
 
     /**
      * @param profileId
@@ -166,5 +171,40 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.OK).headers(headers).body(posts);
 
     }
+
+    @GetMapping("/comments/id/{postId}")
+    ResponseEntity<List<Comments>> getCommentsByPostId(@PathVariable("postId") int postId) {
+        HttpHeaders headers = new HttpHeaders();
+        List<Comments> comments = commentsService.getCommentsByPostId(postId);
+        logger.info("get comments");
+        System.out.println(comments);
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(comments);
+    }
+
+
+    @PostMapping("/comments/create")
+    ResponseEntity<Comments> addComment(@RequestBody Comments comments) {
+        HttpHeaders headers = new HttpHeaders();
+        Comments newComment = commentsService.addComment(comments);
+        logger.info("createComment()");
+        return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(newComment);
+    }
+
+    @PostMapping("/likes/create")
+    ResponseEntity<Like> addLike(@RequestBody Like like) {
+        HttpHeaders headers = new HttpHeaders();
+        Like newLike = likeService.addLike(like);
+        logger.info("createLike()");
+        return ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(newLike);
+    }
+
+    @DeleteMapping("/likes/id/{deleteById}")
+    ResponseEntity<Like> deleteLike(@PathVariable("deleteById") int id) {
+        HttpHeaders headers = new HttpHeaders();
+        likeService.deleteLike(id);
+        logger.info("deleteLike()");
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
+    }
+
 
 }

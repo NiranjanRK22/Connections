@@ -14,7 +14,8 @@ public interface ICommentsService {
 
     Comments getComment(int commentId) throws CommentNotFoundException;
 
-    List<Comments> getByPostId(int postId) throws CommentNotFoundException;
+    List<Comments> getCommentsByPostId(int postId) throws CommentNotFoundException;
+
 
     List<Comments> getByCommentContent(String content) throws CommentNotFoundException;
 

@@ -14,8 +14,9 @@ public interface ICommentsRepository extends JpaRepository<Comments, Integer> {
      * @param postId
      * @return
      */
-    @Query("from Comments c inner join c.post p where p.postId = ?1")
-    List<Comments> findByPostId(int postId);
+//    @Query(value = "SELECT * from comments where postid =?1" ,nativeQuery = true)
+    @Query("from Comments c inner join c.post p where p.postId=?1")
+    List<Comments> findCommentsByPostId(int postId);
 
     /**
      *
@@ -24,4 +25,6 @@ public interface ICommentsRepository extends JpaRepository<Comments, Integer> {
      */
     @Query("from Comments c where c.comment LIKE %?1%")
     List<Comments> findByCommentContent(String content);
+
+
 }
