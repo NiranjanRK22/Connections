@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface IPostRepository extends JpaRepository<Post, Integer> {
     /**
-     *
      * @param postContent
      * @return
      */
@@ -19,10 +18,12 @@ public interface IPostRepository extends JpaRepository<Post, Integer> {
     List<Post> findByPostContent(String postContent);
 
     /**
-     *
      * @param profileId
      * @return
      */
     @Query("from Post p inner join p.profile pf where pf.profileId = ?1")
     List<Post> findPostsByProfile(int profileId);
+
+    @Query(value = "delete * from post p where p.postid =?1", nativeQuery = true)
+    void deleteById(int postId);
 }

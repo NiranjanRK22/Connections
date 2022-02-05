@@ -71,7 +71,6 @@ public class PostController {
     @GetMapping("post/profiles/id/{profileId}")
     Profile showProfileById(@PathVariable("profileId") int profileId) {
         return profileService.getProfileById(profileId);
-
     }
 
     /**
@@ -103,6 +102,15 @@ public class PostController {
      * @param id
      * @return
      */
+    @DeleteMapping("/comment/id/{deleteById}")
+    ResponseEntity<Void> deleteComment(@PathVariable("deleteById") int id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Track deleted successfully");
+        commentsService.deleteComment(id);
+        logger.info("deletePost()");
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
+    }
+
     @DeleteMapping("/post/id/{deleteById}")
     ResponseEntity<Void> deletePost(@PathVariable("deleteById") int id) {
         HttpHeaders headers = new HttpHeaders();
@@ -111,6 +119,7 @@ public class PostController {
         logger.info("deletePost()");
         return ResponseEntity.status(HttpStatus.OK).headers(headers).build();
     }
+
 
     /**
      * @param id

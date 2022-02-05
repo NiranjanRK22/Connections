@@ -32,6 +32,8 @@ public class Profile {
     @JoinColumn(name="profileid")
     @JsonIgnore
     private Set<Post> posts;
+    @JsonIgnore
+    private String password;
 
     public Profile() {
     }
