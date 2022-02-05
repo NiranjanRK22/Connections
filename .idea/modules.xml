@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../IntelliJ/spring/product-app-restapi/Product-app-restapi.iml" filepath="$PROJECT_DIR$/../../IntelliJ/spring/product-app-restapi/Product-app-restapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/connections-config-server/connections-config-server.iml" filepath="$PROJECT_DIR$/connections-config-server/connections-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/connections-eureka-server/connections-eureka-server.iml" filepath="$PROJECT_DIR$/connections-eureka-server/connections-eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/connections-gateway-api/connections-gateway-api.iml" filepath="$PROJECT_DIR$/connections-gateway-api/connections-gateway-api.iml" />

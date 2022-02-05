@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @AllArgsConstructor
 @ToString
 public class ApiErrors {
@@ -15,4 +15,7 @@ public class ApiErrors {
     HttpStatus status;
     String message;
     String Path;
+
+    public ApiErrors() {
+    }
 }

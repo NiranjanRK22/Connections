@@ -1,6 +1,7 @@
 package com.jobs.controllers;
 
 import com.jobs.exceptions.JobNotFoundException;
+import com.jobs.model.Company;
 import com.jobs.model.Job;
 import com.jobs.service.IJobService;
 import org.slf4j.Logger;
@@ -130,6 +131,20 @@ public class JobController {
         return ResponseEntity.ok().headers(headers).body(jobs);
     }
 
+    @GetMapping("/jobs/companyName/{companyName}")
+    ResponseEntity<Company>getByCompanyName(@PathVariable("companyName") String companyName) {
+        logger.debug("inside job by company");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting jobs by company name");
+
+        Company company = jobService.getByCompanyName(companyName);
+        System.out.println(company);
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(company);
+
+
+    }
+
+
     @GetMapping("/jobs/employmenttype/{employmenttype}/location/{location}")
     ResponseEntity<List<Job>> getByTypeAndLocation(@PathVariable("employmenttype") String employmentType, @PathVariable("location") String location) {
         logger.debug("inside get job by employment type and location");
@@ -229,5 +244,7 @@ public class JobController {
         logger.info("getting a jobs by experience and salary range"+jobs);
         return ResponseEntity.ok().headers(headers).body(jobs);
     }
+
+
 
 }

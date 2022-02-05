@@ -30,6 +30,8 @@ public interface IJobService {
 
     List<Job> getByCompany(String company) throws JobNotFoundException;
 
+    Company getByCompanyName(String companyName) throws JobNotFoundException;
+
     List<Job> getByTypeAndLocation(String employmentType, String location) throws JobNotFoundException;
 
     List<Job> getByCompanyAndLocation(String company, String location) throws JobNotFoundException;
@@ -49,6 +51,4 @@ public interface IJobService {
     List<Job> getByVacancy(int vacancies) throws JobNotFoundException;
 
     List<Job> getByExperienceAndSalary(double experience, double minSalary, double maxSalary) throws JobNotFoundException;
-
-
 }
