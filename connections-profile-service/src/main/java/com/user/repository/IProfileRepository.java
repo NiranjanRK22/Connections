@@ -36,4 +36,6 @@ public interface IProfileRepository extends JpaRepository<Profile, Integer> {
 
     @Query("from Profile p inner join p.profileDetails d inner join d.skills s inner join d.certifications c where s.skillName=?1 and c.certificationName=?2")
     List<Profile> findByCertifiedSkills(String skillName, String certificationName) throws ProfileNotFoundException;
+
+    Profile findByEmail(String email) throws ProfileNotFoundException;
 }

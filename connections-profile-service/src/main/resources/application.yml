@@ -18,8 +18,8 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
-
-#  config:
-#    import: configserver:http://localhost:8888/
+  main:
+    allow-circular-references: true
 #  profiles:
 #    active: dev,prod
+

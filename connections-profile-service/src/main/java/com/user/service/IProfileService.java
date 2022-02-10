@@ -11,6 +11,8 @@ public interface IProfileService {
     void deleteProfile(int profileId) throws ProfileNotFoundException;
 
     Profile getProfileById(int profileId) throws ProfileNotFoundException;
+    Profile loginProfile(String email, String password) throws ProfileNotFoundException;
+    Profile getProfileByEmail(String email) throws ProfileNotFoundException;
 
     List<Profile> getAll();
     List<Profile> getByName(String name) throws ProfileNotFoundException;
@@ -21,4 +23,5 @@ public interface IProfileService {
     List<Profile> getByCertifications(String certificationName) throws ProfileNotFoundException;
     List<Profile> getByCertifiedSkills(String skillName, String certificationName) throws ProfileNotFoundException;
     List<Profile> getByExperience(int experience) throws ProfileNotFoundException;
+
 }

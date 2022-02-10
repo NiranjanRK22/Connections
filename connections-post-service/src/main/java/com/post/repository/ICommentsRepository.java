@@ -2,6 +2,7 @@ package com.post.repository;
 
 import com.post.model.Comments;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -26,5 +27,8 @@ public interface ICommentsRepository extends JpaRepository<Comments, Integer> {
     @Query("from Comments c where c.comment LIKE %?1%")
     List<Comments> findByCommentContent(String content);
 
+    @Modifying
+    @Query(value="delete from comments where commentid = ?1",nativeQuery = true)
+    void deleteByCommentId(int commentId);
 
 }

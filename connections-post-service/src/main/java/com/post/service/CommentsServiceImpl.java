@@ -46,7 +46,7 @@ public class CommentsServiceImpl implements ICommentsService {
      */
     @Override
     public void deleteComment(int commentId) {
-        commentsRepository.deleteById(commentId);
+        commentsRepository.deleteByCommentId(commentId);
     }
 
     /**

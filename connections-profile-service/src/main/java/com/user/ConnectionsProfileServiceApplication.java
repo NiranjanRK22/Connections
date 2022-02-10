@@ -1,13 +1,14 @@
 package com.user;
 
-import com.user.repository.UserRepository;
 import com.user.service.IProfileService;
 import com.user.service.ISkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.context.annotation.Bean;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @SpringBootApplication
@@ -25,17 +26,19 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
     @Autowired
     private ISkillService skillService;
 
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
 
     @Override
     public void run(String... args) throws Exception {
 
-
+//
 //        Skills skill1= new Skills(Skill.DEVOPS.toString());
 //        Skills skill3= new Skills(Skill.HIBERNATE.toString());
 //
@@ -49,7 +52,7 @@ public class ConnectionsProfileServiceApplication implements CommandLineRunner {
 //
 //        ProfileDetails profileDetails = new ProfileDetails(OpenTo.OPENTOWORK, "MS",skillsSet, 3, certificationsSet);
 //
-//        Profile profile = new Profile("Navin", "navin@gmail.com", "Senior Software Engineer", "https://res.cloudinary.com/dmnrh67gl/image/upload/v1640320468/123.jpg", profileDetails);
+//        Profile profile = new Profile("Manish", "Manish@gmail.com", " Software Engineer", "/assets/profiles/bat2.jpg", profileDetails,"123456");
 //        profileService.addProfile(profile);
 //
 //        System.out.println(profileService.getProfileById(105));

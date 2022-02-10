@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-
 @Entity
 public class Profile {
     @Id
@@ -32,18 +31,20 @@ public class Profile {
     @JoinColumn(name="profileid")
     @JsonIgnore
     private Set<Post> posts;
-    @JsonIgnore
+//    @JsonIgnore
     private String password;
 
     public Profile() {
     }
 
-    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails) {
+    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails,String password) {
         this.name = name;
         this.email = email;
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
+        this.password=password;
+
     }
 
     @Override
@@ -54,6 +55,8 @@ public class Profile {
                 ", bio='" + bio + '\'' +
                 ", profileImage='" + profileImage + '\'' +
                 ", profileDetails=" + profileDetails +
+                ", posts=" + posts +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

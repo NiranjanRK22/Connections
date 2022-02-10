@@ -34,16 +34,19 @@ public class Profile {
     @JoinColumn(name = "profileid")
     @JsonIgnore
     private Set<Post> posts;
+//    @JsonIgnore
+    private String password;
 
     public Profile() {
     }
 
-    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails) {
+    public Profile(String name, String email, String bio, String profileImage, ProfileDetails profileDetails,String password) {
         this.name = name;
         this.email = email;
         this.bio = bio;
         this.profileImage = profileImage;
         this.profileDetails = profileDetails;
+        this.password = password;
 
     }
 
@@ -102,6 +105,9 @@ public class Profile {
                 ", email='" + email + '\'' +
                 ", bio='" + bio + '\'' +
                 ", profileImage='" + profileImage + '\'' +
+                ", profileDetails=" + profileDetails +
+                ", posts=" + posts +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

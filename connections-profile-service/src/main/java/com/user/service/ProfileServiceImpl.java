@@ -3,14 +3,20 @@ package com.user.service;
 import com.user.exceptions.ProfileNotFoundException;
 import com.user.model.OpenTo;
 import com.user.model.Profile;
+import com.user.model.ProfileDetails;
 import com.user.repository.IProfileRepository;
+import org.bouncycastle.crypto.generators.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProfileServiceImpl implements IProfileService{
+
+    @Autowired
+   private BCryptPasswordEncoder passwordEncoder;
 
     private IProfileRepository profileRepository;
 
@@ -21,7 +27,21 @@ public class ProfileServiceImpl implements IProfileService{
 
     @Override
     public Profile addProfile(Profile profile) {
-        return profileRepository.save(profile);
+        Profile nProfile =new Profile();
+        ProfileDetails profileDetails = new ProfileDetails();
+        profileDetails.setOpenTo(profile.getProfileDetails().getOpenTo());
+        profileDetails.setSkills(profile.getProfileDetails().getSkills());
+        profileDetails.setExperience(profile.getProfileDetails().getExperience());
+        profileDetails.setCertifications(profile.getProfileDetails().getCertifications());
+        profileDetails.setQualification(profile.getProfileDetails().getQualification());
+        nProfile.setProfileDetails(profileDetails);
+
+        nProfile.setName(profile.getName());
+        nProfile.setEmail(profile.getEmail());
+        nProfile.setBio(profile.getBio());
+        nProfile.setPassword(passwordEncoder.encode(profile.getPassword()));
+        nProfile.setProfileImage(profile.getProfileImage());
+        return profileRepository.save(nProfile);
     }
 
     @Override
@@ -38,6 +58,24 @@ public class ProfileServiceImpl implements IProfileService{
     public Profile getProfileById(int profileId) {
         return profileRepository.findById(profileId)
                 .orElseThrow(() -> new ProfileNotFoundException("Invalid id"));
+    }
+
+    @Override
+    public Profile loginProfile(String email, String password) throws ProfileNotFoundException {
+        Profile profile = profileRepository.findByEmail(email);
+        if (profile == null)
+            throw new ProfileNotFoundException("Invalid email");
+        if (!passwordEncoder.matches(password, profile.getPassword()))
+            throw new ProfileNotFoundException("Invalid password");
+        return profile;
+    }
+
+    @Override
+    public Profile getProfileByEmail(String email) throws ProfileNotFoundException {
+        Profile profile = profileRepository.findByEmail(email);
+        if (profile == null)
+            throw new ProfileNotFoundException("Invalid email");
+        return profile;
     }
 
     @Override
